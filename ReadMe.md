@@ -8,70 +8,69 @@ Adversarial Example Detection using Multi-view Inconsistency"
 - tensorflow_probability == 0.7
 
 
-### Data Preperation:
-After preprocessing(this step) data will be stored in "data/<dataset>" folder as pickle file format.
-1. For CIFAR10 dataset, no pre-processing is required and pickle files can be downloaded directly into "data/cifar" folder.
+## Data Preperation:
+After preprocessing(this step) data will be stored in "data/\<dataset\>" folder as pickle file format.
+1. For CIFAR10 dataset(https://www.cs.toronto.edu/~kriz/cifar.html), no pre-processing is required and pickle files can be downloaded directly into "data/cifar" folder.
 
-2. Download ImageNet data directly in "Raw_data/ImageNet" folder. We have used ILSVRC2012_img_train dateset. To buid Custom Restricted ImageNet data, necessary files are already provided in "Raw_data/ImageNet/imagenet_info".
-Following Code will build custom imagenet dataset and save it in "data/imagenet"
-  - python prepare_imagenet.py
+2. Download ImageNet data (https://image-net.org/index.php) directly in "Raw_data/ImageNet" folder. We have used ILSVRC2012_img_train dateset. To buid Custom Restricted ImageNet data, necessary files are already provided in "Raw_data/ImageNet/imagenet_info". Run following Code to build and save custom imagenet dataset in "data/imagenet".
+  
+      ```python prepare_imagenet.py``` 
+  
 
-3. Download GTSRB data in "Raw_data/GTSRB" folder and run following code to convert it into pickle files.
-  - prepare_GTSRB_data.py
-
-
-
-Most of the codes will require dataset name. This value should be passed as cifar, imagenet or gtsrb.
-
-Training:
-  1. Classifier:
-        Input: Training and Test data files.
-        Output: Trained model.
-        - python Classifier/train.py -i <data_dir_path> -d <dataset> -c <Num of Classes>
-        The trained model will be saved in Classifier/<dataset>_Model/ResNet50_ckpt/ folder.
-
-  2. Pixel-CNN
-        Input: Training and Test data files.
-        Output: Trained model.
-        - python pixel-cnn/train.py -d <dataset>
-        Trained model will be saved in pixel-cnn/<dataset>_Model/params_<dataset>.ckpt.
-
-  3. Train GMM
-        To train GMM model, first it requires representation vector of all training/validation data.
-              - python GMM/prepare_representation.py -d <dataset> -f clean
-              Output: Representation data in data/<dataset>/Representation folder
-
-        - python GMM/train_GMM.py -d <dataset>
-        Output: Class conditional GMM model saved in GMM/GMM_Models/<dataset>_GMM
+3. Download GTSRB data (https://benchmark.ini.rub.de/gtsrb_dataset.html) in "Raw_data/GTSRB" folder and run following code to convert it into pickle files.
+      
+      ```prepare_GTSRB_data.py```
 
 
-Attack:
-    Input: Test data and trained classifier model
-    Output: Adversarial examples will be saved in "data/<dataset>/Adversarial/" folder.
-    To attack all samples give num_samples = -1.
-
-      1. L2 attacks  [PGD,FGSM,MIM]
-          - python Attacks/attack_Linf.py -d cifar -n 1000
-      2. L-inf attacks [CW,DeepFool]
-          - python Attacks/attack_L2.py -d cifar -n 1000
-      3. WhiteBox Attack
-          - python WhiteBox_attack.py -d <cifar> -ns 1000
 
 
-View Generation:
-      For precise analysis, it's important that benign test files should only contain samples that are correctly classified.
-      Following code will save correctly classified samples in data/<dataset>/test_c
-      - python Classifier/test.py - d <dataset>
+## Training:
+* The value of \<dataset\> should be passed as cifar, imagenet or gtsrb.
 
-      To generate views for benign and adversarial samples: Following code will save files in data/<dataset>/Generated/
-      - python pixel-cnn/generate_views.py -d <dataset> -n <num_samples>
-      To generate views for all samples give num_samples = -1. Though view generation is a time consuming step. So either keep num_samples value low or expect this code to finish in 2-3 days.
-      The approximate detection rate that are quite close to True detection rate can be obtained using num_samples = 1000 for cifar/gtsrb. For imagenet test samples are already close to 1000.
-      The above code generate views for each files independently. Thus they can be generated seperately by modifying line 224.
+#### 1. Classifier:
+```ruby
+     - python Classifier/train.py -d cifar -c 10
+```
+   Trained model will be saved in Classifier/\<dataset\>_Model/ResNet50_ckpt/ folder.
 
-Detection:
-      Step 1: Feature/Descriptor extraction using generated views. Output of the following code will save files in data/<dataset>/Final_Descriptors
-      - python Final_Features.py -d <dataset>
+#### 2. Pixel-CNN
+```ruby
+     - python pixel-cnn/train.py -d cifar
+```
+   Trained model will be saved in pixel-cnn /\<dataset\>\_Model/params_\<dataset\>.ckpt folder.
 
-      Step 2: Training and Evaluation for Adversarial detector. Output of the following code will be AUC Score for all attack methods.
-      - python  Adversarial_Detector.py -d <dataset>
+#### 3. GMM
+  To train GMM model, first it requires representation vector of all training/validation data. After first code it will be saved in "data/\<dataset\>/Representation" folder. Next code will train Class conditional GMM model and it will be saved in "GMM/GMM_Models/\<dataset\>_GMM" folder.
+
+ ```ruby
+      - python GMM/prepare_representation.py -d <dataset> -f clean
+      - python GMM/train_GMM.py -d <dataset>
+ ```
+  
+
+## Adversarial Samples:
+Input: Test data and trained classifier model.
+  
+Output: Adversarial examples (PGD, FGSM, MIM, CW, DeepFool and WhiteBox) will be saved in "data/<dataset\>/Adversarial/" folder.To attack all samples give num_samples = -1.
+  ```ruby
+  - python Attacks/attack_Linf.py -d cifar -n 2000
+  - python Attacks/attack_L2.py -d cifar -n 2000
+  - python WhiteBox_attack.py -d cifar -ns 2000
+  ```
+
+## View Generation:
+For precise analysis, it's important that benign test files should only contain samples that are correctly classified. Following code will filter those benign samples and save them in "data/\<dataset\>/test_c" file. Next code will generate views for all data files and save them in "data/\<dataset\>/Generated/" folder.
+  ```ruby
+   - python Classifier/test.py - d cifar
+   - python pixel-cnn/generate_views.py -d cifar -n 1000
+   ```
+In view generation number of samples value can not exceed adversarial samples generated by worst attack method. To generate views for all samples give num_samples = -1. Though view generation is a time consuming step. So either keep num_samples value low or expect this code to finish in 2-3 days. The approximate detection rate that is quite close to True detection rate, can be obtained using num_samples = 1000 for cifar/gtsrb. 
+     
+## Detection:
+Step 1: Feature/Descriptor extraction using generated views. Output of the first code will save files in data/<dataset>/Final_Descriptors.
+  
+Step 2: Training and Evaluation for Adversarial detector. Output of the second code will be AUC Score for all attack methods.
+   ```ruby 
+    - python Final_Features.py -d cifar
+    - python  Adversarial_Detector.py -d cifar
+  ```
