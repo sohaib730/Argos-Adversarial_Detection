@@ -1,8 +1,8 @@
-Requirements:
-CUDA Enabled GPU hardware
-python == 3.6.9
-tensorflow-gpu==1.15.0
-#tensorflow_probability == 0.7
+##Requirements:
+- CUDA Enabled GPU hardware
+- python == 3.6.9
+- tensorflow-gpu==1.15.0
+- tensorflow_probability == 0.7
 
 
 Data Preperation:
@@ -56,7 +56,7 @@ Attack:
 
 
 View Generation:
-      For precise analysis, it's important the benign test files should only contain samples that are correctly classified.
+      For precise analysis, it's important that benign test files should only contain samples that are correctly classified.
       Following code will save correctly classified samples in data/<dataset>/test_c
       - python Classifier/test.py - d <dataset>
 
@@ -72,5 +72,3 @@ Detection:
 
       Step 2: Training and Evaluation for Adversarial detector. Output of the following code will be AUC Score for all attack methods.
       - python  Adversarial_Detector.py -d <dataset>
-
-      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
