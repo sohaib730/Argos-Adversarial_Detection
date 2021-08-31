@@ -27,25 +27,25 @@ After preprocessing(this step) data will be stored in "data/\<dataset\>" folder 
 ## Training:
 * The value of \<dataset\> should be passed as cifar, imagenet or gtsrb.
 
-#### 1. Classifier:
-```ruby
+  #### 1. Classifier:
+  ```ruby
      - python Classifier/train.py -d cifar -c 10
-```
+  ```
    Trained model will be saved in Classifier/\<dataset\>_Model/ResNet50_ckpt/ folder.
 
-#### 2. Pixel-CNN
-```ruby
+  #### 2. Pixel-CNN
+  ```ruby
      - python pixel-cnn/train.py -d cifar
-```
-   Trained model will be saved in pixel-cnn /\<dataset\>\_Model/params_\<dataset\>.ckpt folder.
+  ```
+    Trained model will be saved in pixel-cnn /\<dataset\>\_Model/params_\<dataset\>.ckpt folder.
 
-#### 3. GMM
-  To train GMM model, first it requires representation vector of all training/validation data. After first code it will be saved in "data/\<dataset\>/Representation" folder. Next code will train Class conditional GMM model and it will be saved in "GMM/GMM_Models/\<dataset\>_GMM" folder.
+   #### 3. GMM
+    To train GMM model, first it requires representation vector of all training/validation data. After first code it will be saved in "data/\<datase \>/Representation" folder. Next code will train Class conditional GMM model and it will be saved in "GMM/GMM_Models/\<dataset\>_GMM" folder.
 
- ```ruby
+    ```ruby
       - python GMM/prepare_representation.py -d <dataset> -f clean
       - python GMM/train_GMM.py -d <dataset>
- ```
+     ```
   
 
 ## Adversarial Samples:
