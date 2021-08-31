@@ -1,12 +1,15 @@
-##Requirements:
+This code is the implementation of "Two Souls in an Adversarial Image: Towards Universal
+Adversarial Example Detection using Multi-view Inconsistency"
+
+## Requirements:
 - CUDA Enabled GPU hardware
 - python == 3.6.9
 - tensorflow-gpu==1.15.0
 - tensorflow_probability == 0.7
 
 
-Data Preperation:
-After preprocessing data will be placed in "data/<dataset>" folder as pickle file format.
+### Data Preperation:
+After preprocessing(this step) data will be stored in "data/<dataset>" folder as pickle file format.
 1. For CIFAR10 dataset, no pre-processing is required and pickle files can be downloaded directly into "data/cifar" folder.
 
 2. Download ImageNet data directly in "Raw_data/ImageNet" folder. We have used ILSVRC2012_img_train dateset. To buid Custom Restricted ImageNet data, necessary files are already provided in "Raw_data/ImageNet/imagenet_info".
