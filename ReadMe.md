@@ -32,13 +32,13 @@ After preprocessing(this step) data will be stored in "data/\<dataset\>" folder 
   ```ruby
      - python Classifier/train.py -d cifar -c 10
   ```
-   Trained model will be saved in Classifier/\<dataset\>_Model/ResNet50_ckpt/ folder.
+   Trained model will be saved in "Classifier/\<dataset\>_Model/ResNet50_ckpt/" folder.
 
   #### 2. Pixel-CNN
   ```ruby
      - python pixel-cnn/train.py -d cifar
   ```
-    Trained model will be saved in pixel-cnn /\<dataset\>\_Model/ folder.
+    Trained model will be saved in "pixel-cnn/\<dataset\>\_Model/" folder.
 
    #### 3. GMM
     To train GMM model, first it requires representation vector of all training/validation data. After first code it will be saved in "data/\<datase \>/Representation" folder. Next code will train Class conditional GMM model and it will be saved in "GMM/GMM_Models/\<dataset\>_GMM" folder.
