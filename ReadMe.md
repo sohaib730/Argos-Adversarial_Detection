@@ -19,7 +19,7 @@ After preprocessing(this step) data will be stored in "data/\<dataset\>" folder 
 
 3. Download GTSRB data (https://benchmark.ini.rub.de/gtsrb_dataset.html) in "Raw_data/GTSRB" folder and run following code to convert it into pickle files.
       
-      ```prepare_GTSRB_data.py```
+      ```python prepare_GTSRB_data.py```
 
 
 
