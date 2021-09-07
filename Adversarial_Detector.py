@@ -1,5 +1,6 @@
 
 """
+__author__ = Sohaib Kiani
 Training and evaluation and adversarial Detector
 30% of the samples are used for Training and remaining for Testing
 
