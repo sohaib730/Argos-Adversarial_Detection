@@ -28,7 +28,7 @@ After preprocessing(this step) data will be stored in "data/\<dataset\>" folder 
 
 ## Training:
 * The value of \<dataset\> should be passed as cifar, imagenet or gtsrb.
-* To avoid Classifier and Pixel-CNN training, download already trained models from https://kansas-my.sharepoint.com/:f:/g/personal/s751k930_home_ku_edu/Eq-nhR_jwbNOphY1mbXox0AB_vgx_-Jtc5XsWmO9Geq4rQ?e=36i0dT.
+* To avoid Classifier and Pixel-CNN training, download already trained models from https://kansas-my.sharepoint.com/:f:/g/personal/s751k930_home_ku_edu/Eq-nhR_jwbNOphY1mbXox0AB_vgx_-Jtc5XsWmO9Geq4rQ?e=36i0dT and store them in respective folders.
 
   #### 1. Classifier:
   ```ruby
