@@ -8,6 +8,8 @@ Following are the requirements and step by step instructions to reproduce the re
 - python == 3.6.9
 - tensorflow-gpu==1.15.0
 - tensorflow_probability == 0.7
+- robustness (https://github.com/MadryLab/robustness)
+- cleverhans
 
 
 ## Data Preparation:
