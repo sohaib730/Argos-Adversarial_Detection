@@ -1,5 +1,7 @@
 This code is the implementation of "Two Souls in an Adversarial Image: Towards Universal
-Adversarial Example Detection using Multi-view Inconsistency". Relevant Paper's Section are mentioned infront of each steps to get further insight.
+Adversarial Example Detection using Multi-view Inconsistency". Section 5.1 of the paper provides detail about Datasets and Training setup. Section 5.2, explains threat models and attack method used for generating Adversarial Samples. Section 4.2, provides algorithm for View Generation. Section 4.3, gives details about Predictors and Detection Algorithm. Section 5.3, includes the detection result.
+
+Following are the requirements and step by step instructions to reproduce the results reported in the paper:
 
 ## Requirements:
 - CUDA Enabled GPU hardware
