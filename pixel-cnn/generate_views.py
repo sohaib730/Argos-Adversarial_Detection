@@ -1,3 +1,8 @@
+"""
+__author__ = Sohaib Kiani
+August 2021
+"""
+
 import fast_pixel_cnn_pp.model as model
 import fast_pixel_cnn_pp.fast_nn as fast_nn
 import fast_pixel_cnn_pp.plotting as plotting
