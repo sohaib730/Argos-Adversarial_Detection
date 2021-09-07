@@ -1,5 +1,7 @@
-"""train GMM Models
-__author__ = Sohaib"""
+"""
+__author__ = Sohaib Kiani
+August 2021
+"""
 
 import os
 import pickle
