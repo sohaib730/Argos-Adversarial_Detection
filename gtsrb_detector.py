@@ -1,7 +1,11 @@
-#InshaAllah I will do it!
+
 """
 Detection using direct comparison between input image and generated view G4.
 Though this simple detection scheme is only effective for simpler dataset like GTSRB
+
+
+__author__ = Sohaib Kiani
+August 2021
 """
 
 import pickle
