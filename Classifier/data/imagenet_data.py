@@ -41,7 +41,7 @@ class DataLoader(object):
     """
     def __init__(self, path):
         train_filenames = ['batch_{}'.format(ii+1) for ii in range(1)]
-        eval_filename = 'val'
+        eval_filename = 'test'
 
         samples = 40517
         train_images = np.zeros((samples, 32, 32, 3), dtype='uint8')
