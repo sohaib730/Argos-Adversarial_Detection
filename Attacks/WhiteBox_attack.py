@@ -87,16 +87,16 @@ def load_test_data():
         y = eval_labels
 
     if args.dataset == 'gtsrb':
-        path = '/scratch/kiani/GTSRB/data/test'
-        data = pickle.load(open(path , mode='rb'))
+        
+        data = pickle.load(open(f"{args.data_dir}/test" , mode='rb'))
         print (data.keys())
         x = data['data']
         y = data['labels']
         print ("Range of data should be 0 - 255 and actual is: ",str(np.min(data['data']))+" "+str(np.max(data['data'])))
 
     if args.dataset == 'imagenet':
-        path = '/scratch/kiani/Projects/Datasets/Rest_ImageNet/val_c'
-        data = pickle.load(open(path , mode='rb'))
+        
+        data = pickle.load(open(f"{args.data_dir}/test" , mode='rb'))
         print (data.keys())
         x = data['x']
         y = data['y']
