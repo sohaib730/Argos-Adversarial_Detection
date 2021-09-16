@@ -202,7 +202,7 @@ if __name__ == '__main__':
   parser.add_argument('-o', '--save_dir', type=str, default='/data/CIFAR/Adversarial/', help='Location for the dataset')
   parser.add_argument('-d', '--dataset', type=str, default='cifar', help='Can be either cifar|imagenet|gtsrb')
   parser.add_argument('-m', '--model_dir', type=str, default='/Classifier/Model/ResNet50_ckpt', help='Classifier Model')
-  parser.add_argument('-n', '--num_samples', type=int, default=1000, help='How many test samples to be attacked')
+  parser.add_argument('-n', '--num_samples', type=int, default=1600, help='How many test samples to be attacked')
   parser.add_argument('-b', '--batch_size', type=int, default=100, help='Batch Size')
   args = parser.parse_args()
 
