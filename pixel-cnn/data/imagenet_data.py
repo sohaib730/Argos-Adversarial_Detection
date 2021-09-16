@@ -31,7 +31,7 @@ def load(data_dir, subset='train'):
         trainy = np.concatenate([d['y'] for d in train_data],axis=0)
         return trainx, trainy
     elif subset=='test':
-        test_data = unpickle(os.path.join(data_dir,'val'))
+        test_data = unpickle(os.path.join(data_dir,'test'))
         testx = test_data['x']
         testy = test_data['y']
         return testx, testy
