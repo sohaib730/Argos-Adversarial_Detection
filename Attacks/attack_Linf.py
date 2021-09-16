@@ -45,7 +45,7 @@ def load_data():
         cifar = imagenet_data.DataLoader(args.data_dir)
         assert nb_classes == 16
         print (cifar.eval_data.n)
-        assert cifar.eval_data.n == 1181
+        #assert cifar.eval_data.n == 1181
     return cifar
 
 def load_model(model_file,sess):
