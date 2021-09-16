@@ -217,6 +217,8 @@ if __name__ == '__main__':
 
   args.data_dir = os.path.join( os.getcwd(), '..', f'data/{args.dataset}' )
   args.save_dir = os.path.join( os.getcwd(), '..', f'data/{args.dataset}/Adversarial' )
+  if not os.path.exists(f"{args.save_dir}"):
+      os.makedirs(f"{args.save_dir}")
   args.model_dir = os.path.join( os.getcwd(), '..', f'Classifier/{args.dataset}_Model/ResNet50_ckpt' )
 
   ### Model, Source and Save Dataset dir
