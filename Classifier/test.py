@@ -35,15 +35,15 @@ args.model_dir = os.path.join( os.getcwd(), '..', f'Classifier/{args.data_set}_M
 if args.data_set == 'imagenet':
     import data.imagenet_data as imagenet_data
     data = imagenet_data.DataLoader(args.data_dir)
-    args.num_class == 16
+    args.num_class = 16
 elif args.data_set == 'gtsrb':
     import data.GTSRB_data as gtsrb_data
     data = gtsrb_data.DataLoader(args.data_dir)
-    args.num_class == 43
+    args.num_class = 43
 elif args.data_set == 'cifar':
     import data.cifar10_data as cifar_data
     data = cifar_data.CIFAR10Data(args.data_dir)
-    args.num_class == 10
+    args.num_class = 10
 else:
     raise("unsupported dataset")
 print('input args:\n', json.dumps(vars(args), indent=4, separators=(',',':')))
