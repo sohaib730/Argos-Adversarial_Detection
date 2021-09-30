@@ -41,7 +41,7 @@ if __name__ == "__main__":
     parser.add_argument('-m', '--model_dir', type=str, default='', help='Classifier Model')
     args = parser.parse_args()
 
-    args.data_dir = os.path.join( os.getcwd(), '..', f'data/{args.dataset}/Representation' )
+    args.data_dir = os.path.join( os.getcwd(), f'data/{args.dataset}/Representation' )
     args.model_dir = "GMM_Models"
     if not os.path.exists(args.model_dir):
         os.makedirs(args.model_dir)
