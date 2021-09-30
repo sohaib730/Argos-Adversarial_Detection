@@ -72,7 +72,7 @@ parser.add_argument(
 args = parser.parse_args()
 
 N_gen=4
-data_dir = os.path.join( os.getcwd(), '..', f'data/{args.dataset}' )
+data_dir = os.path.join( os.getcwd(), f'data/{args.dataset}' )
 args.checkpoint = f"Model_{args.dataset}/params_{args.dataset}.ckpt"
 if args.dataset == 'imagenet':
     args.num_labels = 16
