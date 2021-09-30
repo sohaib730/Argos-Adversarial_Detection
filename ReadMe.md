@@ -14,7 +14,7 @@ Following are the requirements and step by step instructions to reproduce the re
 
 ## Data Preparation:
 After preprocessing(this step) data will be stored in "data/\<dataset\>" folder as pickle file format.
-1. For CIFAR10 dataset(https://www.cs.toronto.edu/~kriz/cifar.html), no pre-processing is required and pickle files can be downloaded directly into "data/cifar" folder.
+1. For CIFAR10 dataset(https://www.cs.toronto.edu/~kriz/cifar.html), no pre-processing is required and pickle files(python version) can be downloaded directly into "data/cifar" folder. 
 
 2. Download ImageNet data (https://image-net.org/index.php) directly in "Raw_data/ImageNet" folder. We have used ILSVRC2012_img_train dateset. To buid Custom Restricted ImageNet data, necessary files are already provided in "Raw_data/ImageNet/imagenet_info". Run following Code to build and save custom imagenet dataset in "data/imagenet".
   
