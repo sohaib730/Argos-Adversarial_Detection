@@ -15,6 +15,7 @@ To Install python packages run:
 - robustness (https://github.com/MadryLab/robustness)
 - cleverhans == 3.0.1
 
+It's important to note that following instructions are executed from parent folder. There might be a path error, if codes are executed from subfolder.  
 
 ## Data Preparation:
 After preprocessing(this step) data will be stored in "data/\<dataset\>" folder as pickle file format.
