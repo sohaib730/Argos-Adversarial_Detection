@@ -5,6 +5,10 @@ Following are the requirements and step by step instructions to reproduce the re
 
 ## Requirements:
 - CUDA Enabled GPU hardware
+
+To Install python packages run:
+ ```pip install -r requirements.txt```  
+ It will install following packges:
 - python == 3.6.9
 - tensorflow-gpu==1.15.0
 - tensorflow_probability == 0.7
