@@ -1,8 +1,5 @@
-# Insha Allah I will do it
-
-#Version Required
-#Tensflow-gpu == 1.15
-#tensorflow_probability == 0.7
+## __Author__ = Sohaib Kiani
+# Data: 06/2021
 
 import pickle
 import numpy as np
