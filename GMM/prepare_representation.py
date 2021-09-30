@@ -4,7 +4,7 @@ __author__ = Sohaib"""
 import os
 import sys
 import argparse
-sys.path.append(os.path.join( os.getcwd(), '..', f'Classifier/' ))
+sys.path.append(os.path.join( os.getcwd(), f'Classifier/' ))
 from ResNet import Model
 
 from PIL import Image
@@ -166,12 +166,12 @@ if __name__ == "__main__":
 
     args = parser.parse_args()
 
-    args.data_dir = os.path.join( os.getcwd(), '..', f'data/{args.dataset}' )
-    args.save_dir = os.path.join( os.getcwd(), '..', f'data/{args.dataset}/Representation' )
+    args.data_dir = os.path.join( os.getcwd(), f'data/{args.dataset}' )
+    args.save_dir = os.path.join( os.getcwd(), f'data/{args.dataset}/Representation' )
     if not os.path.exists(args.save_dir):
         print(f"Creating Output Directory {args.save_dir}")
         os.makedirs(args.save_dir)
-    args.model_dir = os.path.join( os.getcwd(), '..', f'Classifier/{args.dataset}_Model/ResNet50_ckpt' )
+    args.model_dir = os.path.join( os.getcwd(), f'Classifier/{args.dataset}_Model/ResNet50_ckpt' )
 
     if args.method == 'adversarial':
         method = ['pgd_E4','pgd_E8','pgd_E16','fgsm_E4','fgsm_E8','fgsm_E16','mim_E4','mim_E8','mim_E16','CW','deepFool']
