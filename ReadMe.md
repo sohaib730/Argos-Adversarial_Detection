@@ -9,7 +9,7 @@ Following are the requirements and step by step instructions to reproduce the re
 - tensorflow-gpu==1.15.0
 - tensorflow_probability == 0.7
 - robustness (https://github.com/MadryLab/robustness)
-- cleverhans == 3.1.0
+- cleverhans == 3.0.1
 
 
 ## Data Preparation:
