@@ -10,13 +10,13 @@ import tensorflow as tf
 import math
 import os
 import sys
-sys.path.append(os.path.join( os.getcwd(), '..', 'Classifier/' ))
+sys.path.append(os.path.join( os.getcwd(), 'Classifier/' ))
 from ResNet import Model
 
 import tensorflow_probability as tfp
 tfd = tfp.distributions
 from scipy.special import logsumexp
-sys.path.append(os.path.join( os.getcwd(), '..', f'pixel-cnn/' ))
+sys.path.append(os.path.join( os.getcwd(), 'pixel-cnn/' ))
 from Pixel_CNN import PixelCNN
 import argparse
 import json
@@ -55,9 +55,9 @@ args.save_dir = os.path.join( os.getcwd(), '..', f'data/{args.dataset}/Adversari
 if not os.path.exists(args.save_dir):
     print(f"Creating Output Directory {args.save_dir}")
     os.makedirs(args.save_dir)
-args.model_dir = os.path.join( os.getcwd(), '..', f'Classifier/{args.dataset}_Model/ResNet50_ckpt' )
-args.GMM_dir = os.path.join( os.getcwd(), '..', f'GMM/GMM_Models/{args.dataset}_GMM' )
-args.ckpt_file = os.path.join( os.getcwd(), '..',f'pixel-cnn/Model_{args.dataset}/params_{args.dataset}.ckpt' )
+args.model_dir = os.path.join( os.getcwd(), f'Classifier/{args.dataset}_Model/ResNet50_ckpt' )
+args.GMM_dir = os.path.join( os.getcwd(), f'GMM/GMM_Models/{args.dataset}_GMM' )
+args.ckpt_file = os.path.join( os.getcwd(),f'pixel-cnn/Model_{args.dataset}/params_{args.dataset}.ckpt' )
 
 if args.dataset == 'cifar':
     n_classes = 10
