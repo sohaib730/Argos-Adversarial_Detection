@@ -37,7 +37,7 @@ parser.add_argument('-s', '--seed', type=int, default=1, help='Random seed to us
 
 args = parser.parse_args()
 print('input args:\n', json.dumps(vars(args), indent=4, separators=(',',':'))) # pretty print args
-args.data_dir = os.path.join( os.getcwd(), '..', f'data/{args.data_set}' )
+args.data_dir = os.path.join( os.getcwd(), f'data/{args.data_set}' )
 # -----------------------------------------------------------------------------
 # fix random seed for reproducibility
 np.random.RandomState(args.seed)
