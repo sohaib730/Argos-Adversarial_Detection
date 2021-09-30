@@ -31,7 +31,7 @@ import pickle
 args = ''
 
 def load_data():
-    sys.path.append(os.path.join( os.getcwd(), '..', 'Classifier/data' ))
+    sys.path.append(os.path.join( os.getcwd(), 'Classifier/data' ))
     if args.dataset == 'cifar':
         import cifar10_data
         cifar = cifar10_data.CIFAR10Data(args.data_dir)
@@ -206,9 +206,9 @@ if __name__ == '__main__':
   parser.add_argument('-b', '--batch_size', type=int, default=100, help='Batch Size')
   args = parser.parse_args()
 
-  args.data_dir = os.path.join( os.getcwd(), '..', f'data/{args.dataset}' )
-  args.save_dir = os.path.join( os.getcwd(), '..', f'data/{args.dataset}/Adversarial' )
-  args.model_dir = os.path.join( os.getcwd(), '..', f'Classifier/{args.dataset}_Model/ResNet50_ckpt' )
+  args.data_dir = os.path.join( os.getcwd(), f'data/{args.dataset}' )
+  args.save_dir = os.path.join( os.getcwd(), f'data/{args.dataset}/Adversarial' )
+  args.model_dir = os.path.join( os.getcwd(), f'Classifier/{args.dataset}_Model/ResNet50_ckpt' )
 
   ### Model, Source and Save Dataset dir
 
