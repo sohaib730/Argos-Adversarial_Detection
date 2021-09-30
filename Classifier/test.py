@@ -30,8 +30,8 @@ args = parser.parse_args()
 np.random.RandomState(args.seed)
 tf.set_random_seed(args.seed)
 # initialize data loaders for train/test splits
-args.data_dir = os.path.join( os.getcwd(), '..', f'data/{args.data_set}')
-args.model_dir = os.path.join( os.getcwd(), '..', f'Classifier/{args.data_set}_Model/ResNet50_ckpt' )
+args.data_dir = os.path.join( os.getcwd(), f'data/{args.data_set}')
+args.model_dir = os.path.join( os.getcwd(), f'Classifier/{args.data_set}_Model/ResNet50_ckpt' )
 if args.data_set == 'imagenet':
     import data.imagenet_data as imagenet_data
     data = imagenet_data.DataLoader(args.data_dir)
