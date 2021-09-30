@@ -50,8 +50,8 @@ parser.add_argument('-ns', '--num_samples', type=int, default=-1, help='How many
 # reproducibility
 parser.add_argument('-s', '--seed', type=int, default=1, help='Random seed to use')
 args = parser.parse_args()
-args.data_dir = os.path.join( os.getcwd(), '..', f'data/{args.dataset}' )
-args.save_dir = os.path.join( os.getcwd(), '..', f'data/{args.dataset}/Adversarial')
+args.data_dir = os.path.join( os.getcwd(), f'data/{args.dataset}' )
+args.save_dir = os.path.join( os.getcwd(), f'data/{args.dataset}/Adversarial')
 if not os.path.exists(args.save_dir):
     print(f"Creating Output Directory {args.save_dir}")
     os.makedirs(args.save_dir)
